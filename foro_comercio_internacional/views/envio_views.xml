@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_trade_form" model="ir.ui.view">
+        <field name="name">trade.form</field>
+        <field name="model">trade.envio</field> 
+        <field name="arch" type="xml">
+
+            <form string="Envío Formulario">
+                <header>
+
+                <!-- <field name="modo_transporte" widget="statusbar" clickable="True"/> -->
+                <button name="nombre_funcion_python" string="enviar" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <!-- Columna Izquierda -->
+                        <group>
+                        <field name="id_envio"/>
+                        <field name="peso"/>
+                        <field name = "name"/>
+                        <field name = "modo_transporte"/>
+
+                        </group>
+                        <!-- Columna Derecha -->
+                        <group>
+                            
+                    <field name="master_bl"/>
+                    <field name="id_exp"/> 
+
+                    
+                            
+                        </group>
+
+
+                    </group>
+
+                <!-- 
+                    <field name="producto_ids">
+                    <list>
+                    <field name="name"/> 
+                    <field name="peso"/>
+                    </list>
+                    </field> -->
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+ <!-- 1. Acción -->
+    <record id="action_trade_envio" model="ir.actions.act_window">
+    <field name="name">envios</field>
+    <field name="res_model">trade.envio</field>
+    <field name="view_mode">list,form</field>
+    </record>
+
+<record id="view_trade_envio_list" model="ir.ui.view">
+    <field name="name">trade.envio.list</field>
+    <field name="model">trade.envio</field>
+    <field name="arch" type="xml">
+        <list string="Envíos">
+            <field name="name"/>
+            <field name="id_envio"/>
+            <field name="modo_transporte"/>
+            <field name="peso"/>
+            <field name="peso_total"/>
+            
+
+            
+
+            
+        </list>
+    </field>
+</record>
+
+
+
+<!-- 2. Menú padre -->
+    <menuitem name="Comercio Internacional" id="menu_trade_root"/>
+
+<!-- 3. Submenú -->
+    <menuitem name="Envíos" id="menu_trade_envio" parent="menu_trade_root" action="action_trade_envio"/>
+
+</odoo>

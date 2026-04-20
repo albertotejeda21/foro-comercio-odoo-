@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_trade_producto_kanban" model="ir.ui.view">
+        <field name="name">trade.product.kanban</field>
+        <field name="model">trade.product</field>
+        <field name="arch" type="xml">
+
+
+        <kanban class="o_kanban_mobile" sample="1">
+                <header>
+
+                <!-- <field name="modo_transporte" widget="statusbar" clickable="True"/> -->
+                <button name="nombre_funcion_python" string="hola mundo" type="object" class="oe_highlight"/> 
+                <button name="nombre_funcion_python" string="enviar" type="object" class="oe_highlight"/> 
+                </header>
+        
+                        <!-- Columna Izquierda -->
+                    
+                    <field name="id_producto"/>
+                    <field name="frac"/>
+                    <field name = "descripcion"/>
+                    <field name = "valor"/>
+                    <field name="env_id"/>
+        
+
+                <templates>
+                
+                <t t-name="kanban-box">
+                <div class="oe_kanban_global_click">
+                <div class="oe_kanban_details">
+            
+                                
+            </div>
+
+             
+               <div><strong><field name="id_producto"/></strong> </div> 
+                <div><strong><field name="frac"/> </strong> </div>
+                <div><strong><field name="descripcion"/> </strong> </div>
+                <div><strong><field name="valor"/> </strong> </div>
+                <div><strong><field name="env_id"/> </strong> </div>
+
+            
+    
+            </div>
+            
+                </t>
+                 </templates>
+            </kanban>
+    
+        </field>
+    </record>
+
+
+ <!-- 1. Acción -->
+    <record id="action_trade_product" model="ir.actions.act_window">
+    <field name="name">productos </field>
+    <field name="res_model">trade.product</field>
+    <field name="view_mode">kanban,list,form</field>
+    </record>
+
+<record id="view_trade_product_list" model="ir.ui.view">
+    <field name="name">trade.product.list</field>
+    <field name="model">trade.product</field>
+    <field name="arch" type="xml">
+        <list string="Envíos">
+                        
+                    <field name="id_producto"/>
+                    <field name="frac"/>
+                    <field name = "descripcion"/>
+                    <field name = "valor"/>
+                    <field name="env_id"/>
+              
+
+        </list>
+    </field>
+</record>
+
+
+
+<!-- 3. Submenú -->
+<menuitem name="productos" id="menu_trade_product" parent="menu_trade_root" action="action_trade_product"/>
+</odoo>

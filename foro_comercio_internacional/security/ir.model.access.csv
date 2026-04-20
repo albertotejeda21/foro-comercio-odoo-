@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_trade_envio,trade.envio,model_trade_envio,base.group_user,1,1,1,1
+access_trade_product,access_trade_product,model_trade_product,base.group_user,1,1,1,1
+access_trade_exp,access_trade_exp,model_trade_exp,base.group_user,1,1,1,1
+access_trade_exp,access_trade_exp,model_trade_exp,base.group_user,1,1,1,1
+access_trade_customer,trade.customer,model_trade_customer,base.group_user,1,1,1,1
+access_trade_aduana,trade.aduana,model_trade_aduana,base.group_user,1,1,1,1
+
+
+
+

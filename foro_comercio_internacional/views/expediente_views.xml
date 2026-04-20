@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_trade_cliente_form" model="ir.ui.view">
+        <field name="name">trade.exp.form</field>
+        <field name="model">trade.exp</field>
+        <field name="arch" type="xml">
+
+            <form string="Envío Formulario">
+                <header>
+
+                <!-- <field name="modo_transporte" widget="statusbar" clickable="True"/> -->
+                <!-- <button name="nombre_funcion_python" string="enviar" type="object" class="oe_highlight"/> -->
+                </header>
+                <sheet>
+                    <group>
+                        <!-- Columna Izquierda -->
+                        <group>
+                        <field name="cliente_id"/>
+                        <field name="aduana_ids"/>
+                        <field name = "envio_ids"/>
+                        <field name = "name"/>
+                        </group>
+                        <!-- Columna Derecha -->
+                        <group>
+                            
+                    <field name="id_exp"/>
+                    <field name="estado"/> 
+                    <field name="fecha"/> 
+
+
+    
+                            
+                        </group> 
+
+
+                    </group>
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+ <!-- 1. Acción -->
+    <record id="action_trade_exp" model="ir.actions.act_window">
+    <field name="name">expediente</field>
+    <field name="res_model">trade.exp</field>
+    <field name="view_mode">list,form</field>
+    </record>
+
+<record id="view_trade_exp_list" model="ir.ui.view">
+    <field name="name">trade.exp.list</field>
+    <field name="model">trade.exp</field>
+    <field name="arch" type="xml">
+        <list string="Envíos">
+     <field name="cliente_id"/>
+                        
+                    <field name="aduana_ids"/>
+                    <field name = "envio_ids"/>
+                    <field name="id_exp"/>
+                    <field name="estado"/>
+                    <field name="fecha"/>
+
+        </list>
+    </field>
+</record>
+
+
+
+<!-- 3. Submenú -->
+<menuitem name="expediente" id="menu_trade_exp" parent="menu_trade_root" action="action_trade_exp"/>
+</odoo>

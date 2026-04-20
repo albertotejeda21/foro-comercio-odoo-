@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <!-- 1. DEFINICIÓN DE LA ACCIÓN DEL REPORTE -->
+        <!-- Esto crea el botón "Imprimir" en el menú del modelo -->
+        <record id="action_report_ejemplo" model="ir.actions.report">
+            <field name="name">Nombre del Reporte</field>
+            <field name="model">reporte</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">foro.comercio-internacional.template_ejemplo_id</field>
+            <field name="report_file">foro.comercio-internacional.template_ejemplo_id</field>
+            <field name="binding_model_id" ref="model_tu_modelo_aqui"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- 2. ESTRUCTURA DE LA PLANTILLA (TEMPLATE) -->
+        <template id="template_ejemplo_id">
+            <!-- Contenedor principal de HTML -->
+            <t t-call="web.html_container">
+                <!-- 'docs' contiene los registros seleccionados -->
+                <t t-foreach="docs" t-as="doc">
+                    <!-- 'external_layout' pone el logo, nombre y pie de página de tu empresa -->
+                    <t t-call="web.external_layout">
+                        
+                        <!-- Clase 'page' es obligatoria para el diseño de Odoo -->
+                        <div class="page">
+                            <!-- AQUÍ VA TU CONTENIDO (Tablas, Divs, Spans) -->
+                            <h1>Título del Reporte</h1>
+                            <p>Dato del registro: <span t-field="doc.name"/></p>
+                        </div>
+
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
